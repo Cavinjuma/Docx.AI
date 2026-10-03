@@ -1,0 +1,121 @@
+[
+  {
+    "id": "leave-allowance",
+    "question": "How many paid vacation days does the leave policy allow?",
+    "documents": [
+      {
+        "source": "leave-policy.txt",
+        "text": "The employee leave policy allows 21 paid vacation days each year. Unused days do not roll over."
+      },
+      {
+        "source": "expense-policy.txt",
+        "text": "Employees must submit expense claims within 30 days and include receipts."
+      }
+    ],
+    "expected_sources": ["leave-policy.txt"],
+    "expected_answer_terms": ["21", "vacation days"],
+    "should_abstain": false
+  },
+  {
+    "id": "expense-deadline",
+    "question": "When must employees submit expense claims?",
+    "documents": [
+      {
+        "source": "expense-policy.txt",
+        "text": "Employees must submit expense claims within 30 days and include receipts."
+      },
+      {
+        "source": "travel-guide.md",
+        "text": "Book domestic travel at least two weeks before departure."
+      }
+    ],
+    "expected_sources": ["expense-policy.txt"],
+    "expected_answer_terms": ["30 days", "receipts"],
+    "should_abstain": false
+  },
+  {
+    "id": "project-budget",
+    "question": "What is the approved budget for the Northwind bridge project?",
+    "documents": [
+      {
+        "source": "northwind-project.txt",
+        "text": "The Northwind bridge project has an approved construction budget of 450000 dollars. The budget covers materials, labor, and inspections."
+      },
+      {
+        "source": "southwind-project.txt",
+        "text": "The Southwind road project is scheduled to start in October and will last six months."
+      }
+    ],
+    "expected_sources": ["northwind-project.txt"],
+    "expected_answer_terms": ["450000", "construction budget"],
+    "should_abstain": false
+  },
+  {
+    "id": "remote-work-days",
+    "question": "How many remote work days are allowed each week?",
+    "documents": [
+      {
+        "source": "remote-work-policy.md",
+        "text": "Eligible employees may work remotely up to three days each week with manager approval."
+      },
+      {
+        "source": "office-guide.txt",
+        "text": "The office opens at 8 AM and closes at 6 PM on weekdays."
+      }
+    ],
+    "expected_sources": ["remote-work-policy.md"],
+    "expected_answer_terms": ["three days", "manager approval"],
+    "should_abstain": false
+  },
+  {
+    "id": "support-contact",
+    "question": "Which email address should customers use for support?",
+    "documents": [
+      {
+        "source": "customer-handbook.txt",
+        "text": "Customers can contact the support team at help@example.com for assistance."
+      },
+      {
+        "source": "security-policy.txt",
+        "text": "Passwords must be at least 12 characters long and should not be shared."
+      }
+    ],
+    "expected_sources": ["customer-handbook.txt"],
+    "expected_answer_terms": ["help@example.com"],
+    "should_abstain": false
+  },
+  {
+    "id": "unavailable-office-location",
+    "question": "What is the street address of the London office?",
+    "documents": [
+      {
+        "source": "expense-policy.txt",
+        "text": "Employees must submit expense claims within 30 days and include receipts."
+      },
+      {
+        "source": "leave-policy.txt",
+        "text": "The employee leave policy allows 21 paid vacation days each year."
+      }
+    ],
+    "expected_sources": [],
+    "expected_answer_terms": [],
+    "should_abstain": true
+  },
+  {
+    "id": "unavailable-insurance-provider",
+    "question": "Which insurance company covers employee dental care?",
+    "documents": [
+      {
+        "source": "remote-work-policy.md",
+        "text": "Eligible employees may work remotely up to three days each week with manager approval."
+      },
+      {
+        "source": "customer-handbook.txt",
+        "text": "Customers can contact the support team at help@example.com for assistance."
+      }
+    ],
+    "expected_sources": [],
+    "expected_answer_terms": [],
+    "should_abstain": true
+  }
+]

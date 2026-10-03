@@ -5,9 +5,9 @@ them using Retrieval-Augmented Generation (RAG). Answers are grounded in the upl
 returned with structured citations. When the documents don't contain the answer, the system says so
 instead of guessing.
 
-> **Project status: Phase 1 of 11 complete (foundation only).**
-> The backend skeleton, frontend skeleton, configuration and logging exist. Document processing,
-> retrieval, chat, auth and evaluation are **not built yet**. See [Roadmap](#roadmap).
+> **Project status:** Core application features and a local RAG evaluation baseline are implemented.
+> Production embedding/LLM providers, PostgreSQL/pgvector deployment, CI/CD and hardening remain.
+> See [Roadmap](#roadmap).
 
 ## Problem
 
@@ -24,7 +24,8 @@ answer rather than invoking the model on empty context.
 
 ## Target architecture
 
-This diagram shows the **planned** design; only the FastAPI and React shells exist today.
+This diagram shows the target production design. The current local pipeline uses deterministic
+hashing vectors, SQLite-compatible storage, and an extractive grounded answer builder.
 
 ```mermaid
 flowchart LR
@@ -140,14 +141,14 @@ for tests that don't depend on PostgreSQL behaviour.
 | Phase | Scope | Status |
 |---|---|---|
 | 1 | Repository, FastAPI + React foundations, config, logging, health endpoint | Done |
-| 2 | Database models, Alembic migrations, pgvector setup | Planned |
-| 3 | Authentication (JWT) | Planned |
-| 4 | Document upload and ingestion | Planned |
-| 5 | Embeddings and vector store | Planned |
-| 6 | Retrieval and grounded generation | Planned |
-| 7 | Citations and conversation history | Planned |
-| 8 | React frontend | Planned |
-| 9 | Test suite completion and RAG evaluation | Planned |
+| 2 | Database models and local SQLite setup (PostgreSQL/pgvector migrations remain) | Local complete |
+| 3 | Authentication (JWT) | Done |
+| 4 | Document upload, text extraction and chunk ingestion | Done |
+| 5 | Embeddings and vector store | Local baseline; production vector store planned |
+| 6 | Retrieval and grounded generation | Local baseline; production LLM planned |
+| 7 | Citations and conversation history | Done |
+| 8 | React frontend | Done |
+| 9 | Test suite completion and RAG evaluation | Local baseline done |
 | 10 | Docker and CI/CD | Planned |
 | 11 | Production hardening | Planned |
 
