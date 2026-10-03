@@ -1,0 +1,37 @@
+# Secrets / local config
+.env
+.env.*
+.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+npm-debug.log*
+
+# Uploaded files and local data (added in Phase 4)
+storage/
+uploads/
+*.sqlite3
+*.db
+
+# Evaluation run outputs (datasets are committed; generated results are not)
+evaluation/results/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
