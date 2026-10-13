@@ -33,7 +33,10 @@ class Settings(BaseSettings):
     jwt_access_token_expire_minutes: int = 60
 
     # Comma-separated in the environment, e.g. "http://localhost:5173,https://app.example.com".
-    cors_allowed_origins: Annotated[list[str], NoDecode] = ["http://localhost:5173"]
+    cors_allowed_origins: Annotated[list[str], NoDecode] = [
+        "http://localhost:5173",
+        "https://docx-ai.vercel.app",
+    ]
 
     @field_validator("log_level", mode="before")
     @classmethod

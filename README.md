@@ -104,10 +104,14 @@ duration) and omits query strings, which uvicorn's access log would print.
 | `APP_ENV` | `development` | `development`, `test` or `production` |
 | `LOG_LEVEL` | `INFO` | `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL` |
 | `LOG_FORMAT` | `console` | `console` (readable) or `json` (log aggregation) |
-| `CORS_ALLOWED_ORIGINS` | `http://localhost:5173` | Comma-separated browser origins allowed to call the API |
+| `CORS_ALLOWED_ORIGINS` | `http://localhost:5173,https://docx-ai.vercel.app` | Comma-separated browser origins allowed to call the API |
 
 Frontend (`frontend/.env`, optional, see `frontend/.env.example`): `VITE_API_PROXY_TARGET`,
 `VITE_API_BASE_URL`. Never put secrets in `VITE_` variables: they are bundled into public JS.
+The production frontend defaults to `https://docx-ai-creh.vercel.app` for the API. Override
+`VITE_API_BASE_URL` in the frontend deployment if the backend URL changes. If setting
+`CORS_ALLOWED_ORIGINS` in the backend deployment, include the exact frontend origin
+`https://docx-ai.vercel.app` (no trailing slash).
 
 ## Testing
 

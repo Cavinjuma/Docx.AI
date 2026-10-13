@@ -1,6 +1,8 @@
 // All HTTP access to the backend goes through this module.
-// Leave VITE_API_BASE_URL unset to use same-origin /api (Vite proxy in dev, reverse proxy in prod).
-const API_BASE_URL: string = import.meta.env.VITE_API_BASE_URL ?? ''
+// Development uses the Vite proxy; production defaults to the deployed API and can be overridden.
+const API_BASE_URL: string =
+  import.meta.env.VITE_API_BASE_URL ??
+  (import.meta.env.PROD ? 'https://docx-ai-creh.vercel.app' : '')
 
 export interface HealthResponse {
   status: string
