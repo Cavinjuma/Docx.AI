@@ -59,6 +59,15 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         )
         return response
 
+    @app.get("/", tags=["health"])
+    def root() -> dict[str, str]:
+        return {
+            "status": "ok",
+            "app": settings.app_name,
+            "docs": "/api/docs",
+            "health": "/api/health",
+        }
+
     app.include_router(health.router, prefix="/api")
     app.include_router(auth.router, prefix="/api/auth")
     app.include_router(documents.router, prefix="/api/documents")

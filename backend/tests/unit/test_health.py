@@ -6,6 +6,17 @@ from fastapi.testclient import TestClient
 from app import __version__
 
 
+def test_root_returns_service_status_and_api_links(client: TestClient) -> None:
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {
+        "status": "ok",
+        "app": "AI Document Intelligence Platform",
+        "docs": "/api/docs",
+        "health": "/api/health",
+    }
+
+
 def test_health_returns_ok(client: TestClient) -> None:
     response = client.get("/api/health")
     assert response.status_code == 200

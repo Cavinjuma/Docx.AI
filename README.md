@@ -85,6 +85,7 @@ pip install -r requirements-dev.txt
 python -m uvicorn app.main:create_app --factory --reload --no-access-log
 # API:      http://localhost:8000/api/health
 # Swagger:  http://localhost:8000/api/docs
+# API root: http://localhost:8000/
 
 # Frontend (second terminal)
 cd frontend
