@@ -63,7 +63,7 @@ backend/
     api/         HTTP routers and dependencies (no business logic)
     core/        configuration, logging
     models/ schemas/ services/ rag/ ingestion/ embeddings/ retrieval/   (filled in by later phases)
-    main.py      application factory: create_app()
+    main.py      application factory: create_app() and ASGI app: app
   tests/
     unit/ integration/ pgvector/ e2e/
 frontend/        Vite + React + TypeScript

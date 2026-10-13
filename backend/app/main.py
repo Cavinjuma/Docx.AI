@@ -65,3 +65,6 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(conversations.router, prefix="/api")
     app.include_router(rag.router, prefix="/api")
     return app
+
+
+app = create_app()
